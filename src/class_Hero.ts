@@ -27,14 +27,18 @@ export class Hero {
         this.life = value;
     } 
 
-    attack(opponent: Hero) {
+    attack(opponent: Hero): void {
+      if (!this.weapon) {
     opponent.life -= this.power;
+      } else {
+        opponent.life -= this.power + this.weapon.damage;
+      }
     console.log(`${this.name} attaque ${opponent.name}.`);
     console.log(`Il reste ${opponent.life} à ${opponent.name}.`);
     console.log(`${opponent.name} attaque ${this.name}.`);
     console.log(`Il reste ${this.life} à ${this.name}.`);
 }
-  isAlive() {
+  isAlive(): boolean {
     return this.life > 0
   }
 

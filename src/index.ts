@@ -3,13 +3,16 @@ import { HeroAxe } from "./class_HeroAxe";
 import { HeroSword } from "./class_HeroSword";
 import { Weapon } from "./class_Weapon";
 
-const Avengers = new HeroSword
-("Thor", 20, 120, Weapon);
-const walkingD = new HeroSword("Michonne", 20, 120, Weapon);
+const Avengers = new HeroAxe("Thor", 20, 120);
+const walkingD = new HeroSword("Michonne", 15, 115);
+//correction formateur
+let i = 1;
 
 while (Avengers.isAlive() && walkingD.isAlive()) {
+  console.log("round", i);
   Avengers.attack(walkingD);
   walkingD.attack(Avengers);
+  i++;
 }
 
 if (!Avengers.isAlive() && !walkingD.isAlive()) {
